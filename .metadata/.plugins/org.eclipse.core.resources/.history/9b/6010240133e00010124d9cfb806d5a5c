@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>Hello World </div>
+	<form action = "add" method = "post">
+	
+	Enter First Number <input type = "text" name ="number1"><br>
+	Enter Second Number <input type = "text" name ="number2"><br>
+	<input type ="submit">
+	</form>
+</body>
+</html>
