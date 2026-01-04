@@ -1,7 +1,0 @@
-package com.rashmit;
-
-import java.HttpServlet;
-
-public class SquareServlet extends HttpServlet {
-
-}
