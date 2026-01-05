@@ -1,6 +1,8 @@
 package com.Login;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,14 +28,21 @@ public class Login extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		if(username.equals("Rashmit") && password.equals("Rashmit")) {
-			
-			HttpSession session = request.getSession();
-			session.setAttribute("username" , username);
-			
-			response.sendRedirect("Welcome.jsp");
-		}else { 
-			response.sendRedirect("Login.jsp");
+		LoginDAO log = new LoginDAO();
+		
+		
+		try {
+			if(log.check(username, password)) {
+				
+				HttpSession session = request.getSession();
+				session.setAttribute("username" , username);
+				
+				response.sendRedirect("Welcome.jsp");
+			}else { 
+				response.sendRedirect("Login.jsp");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		
 	}
